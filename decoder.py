@@ -57,8 +57,6 @@ def decode_did(req_body: dict) -> None:
         raise Exception('Could not verify the identity of the user')
 
     # Now verify that email and walletAddress sent are authentic too
-    hashed_additional_claim = encode_defunct(text=additional_claim)
-    additional_signing_public_key = w3.eth.account.recover_message(hashed_additional_claim,
-                                                                   signature=claim['add'])
+    additional_signing_public_key = generate_signing_key(additional_claim, claim['add'])
     if additional_signing_public_key != public_key:
         raise Exception('Could not verify email and walletAddress')
