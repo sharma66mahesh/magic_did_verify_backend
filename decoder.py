@@ -29,7 +29,7 @@ def generate_signing_key(claim_string: str, proof: str) -> str:
     """
     # create hash of claim_string
     hashed_claim = encode_defunct(text=claim_string)
-    # TODO: remove hash or use different hashing
+    # TODO: remove hash or use different hashing (DEFERRED FOR NOW)
     return w3.eth.account.recover_message(hashed_claim, signature=proof)
 
 
