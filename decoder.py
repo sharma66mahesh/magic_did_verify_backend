@@ -6,7 +6,7 @@ import logging
 
 log_level = logging.DEBUG
 # log_level = logging.INFO
-logging.basicConfig(format="%(message)s",level=logging.DEBUG)
+logging.basicConfig(format="%(message)s", level=logging.DEBUG)
 
 
 def generate_public_key(claim: dict) -> str:
